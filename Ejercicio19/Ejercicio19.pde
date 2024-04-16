@@ -1,27 +1,30 @@
-int posY;
-int valor;
-int distRadio;
-
+int posY,posX;
+int distRadio,velocidad;
+int anchoElipse,altoElipse;
 void setup(){
   size(400,400); 
-  posY=0; 
-  valor=1; 
-  distRadio=40; 
+  
+  posX = 0;
+  posY = 0;
+  velocidad = 1; 
+  distRadio= 40 ;
+  anchoElipse = 80;
+  altoElipse = 80;
 }
 
 void draw(){
   background(0); 
   stroke(66,66,66); 
-  line(0,posY,width,posY); 
+  line(posX,posY,posX+width,posY); 
   fill(21,206,19); 
-  ellipse(width/2,posY+distRadio,80,80); 
-  posY+=valor; 
+  ellipse(posX+width/2,posY+distRadio,anchoElipse,altoElipse); 
+  posY+=velocidad; 
   if(posY>=height){
-    valor--; 
+    velocidad--; 
     distRadio-=40; 
   }
   if(posY<=0){
-    valor++; 
+    velocidad++; 
     distRadio+=40; 
   }
 }
